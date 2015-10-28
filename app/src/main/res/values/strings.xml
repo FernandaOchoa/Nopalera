@@ -1,0 +1,28 @@
+<resources>
+    <string name="app_name">Nopalera</string>
+
+    <string name="action_settings">Configuración</string>
+    <string name="action_search">Buscar</string>
+    <string name="action_reporte">Enviar Reporte</string>
+    <string name="item_inicio">Inicio</string>
+    <string name="item_plantas">Plantas</string>
+    <string name="item_plagas">Plagas</string>
+    <string name="item_report">Enviar Report</string>
+    <string name="item_settings">Configuracion</string>
+    <string name="item_about">Acerca de </string>
+    <string name="titulo_inicio">Verificar planta</string>
+    <string name="titulo_tab_plantas">PLANTAS</string>
+    <string name="titulo_tab_plagas">PLAGAS</string>
+    <string name="titulo_tab_report">REPORT</string>
+    <string name="titulo_tab_settings">AJUSTES</string>
+    <string name="titulo_tab_about">ACERCA DE</string>
+    <string name="texto_datos_previos">Datos previos</string>
+    <string name="texto_modificar">Modificar</string>
+    <string name="etiqueta_nombre">Nombre</string>
+    <string name="texto_cambiar_contrasena">Cambia tu contraseña</string>
+    <string name="etiqueta_contrasena">Contraseña</string>
+    <string name="texto_cambiar_nombre">Cambiar Texto</string>
+    <string name="correo">monsh8a@gmail.com</string>
+    <string name="usuario">Fernanda Ochoa</string>
+    <string name="configuration_item">Configuracion</string>
+</resources>
