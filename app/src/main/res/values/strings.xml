@@ -26,6 +26,16 @@
     <string name="usuario">Fernanda Ochoa</string>
     <string name="configuration_item">Configuracion</string>
 
+    <!--Text For Camera -->
+    <string name="pick_image">Pick An Image</string>
+    <string name="take_photo">Take A Photo</string>
+
+
+    <string name="info">Information Color</string>
+    <string name="title_activity_picker_fragment">PickerFragment</string>
+
+
+
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>
