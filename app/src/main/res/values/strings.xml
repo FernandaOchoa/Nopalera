@@ -25,4 +25,7 @@
     <string name="correo">monsh8a@gmail.com</string>
     <string name="usuario">Fernanda Ochoa</string>
     <string name="configuration_item">Configuracion</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>

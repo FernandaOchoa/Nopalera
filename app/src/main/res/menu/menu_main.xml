@@ -14,7 +14,7 @@
         <item
             android:id="@+id/nav_plagas"
             android:icon="@drawable/ic_plagas"
-            android:title="@string/action_reporte"
+            android:title="@string/item_plagas"
             />
         <item
             android:id="@+id/nav_report"

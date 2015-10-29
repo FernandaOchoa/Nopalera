@@ -26,46 +26,45 @@ public class MainActivity extends AppCompatActivity {
 
         agregarToolbar();
 
-        drawerLayout = (DrawerLayout)findViewById(R.id.drawer_layout);
+        drawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
 
-        NavigationView navigationView = (NavigationView)findViewById(R.id.nav_view);
+        NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
 
-        if (navigationView != null){
+        if (navigationView != null) {
             setupDrawerContent(navigationView);
-        }
-        drawerTitle = getResources().getString(R.string.titulo_inicio);
-        if (savedInstanceState == null){
-            //Select Item
-            selectItem(drawerTitle);
+            selectItem(navigationView.getMenu().getItem(0));
         }
     }
-    private void agregarToolbar(){
+
+    private void agregarToolbar() {
         //Add my toolbar for compat
-       toolbar = (Toolbar) findViewById(R.id.toolbar);
+        toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
         final ActionBar ab = getSupportActionBar();
-        if (ab != null){
+        if (ab != null) {
             //Set drawer toggle icon
 
             ab.setHomeAsUpIndicator(R.drawable.ic_drawer_toggle);
             ab.setDisplayHomeAsUpEnabled(true);
         }
     }
-    private void setupDrawerContent (NavigationView navigationView) {
+
+    private void setupDrawerContent(NavigationView navigationView) {
         navigationView.setNavigationItemSelectedListener(
                 new NavigationView.OnNavigationItemSelectedListener() {
                     @Override
                     public boolean onNavigationItemSelected(MenuItem menuItem) {
                         //Item selected check
-                        menuItem.setChecked(true);
-                        String title = menuItem.getTitle().toString();
-                        selectItem(title);
+                       menuItem.setChecked(true);
+                        selectItem(menuItem);
+                        drawerLayout.closeDrawers();
                         return true;
                     }
                 }
         );
     }
+
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         if (!drawerLayout.isDrawerOpen(GravityCompat.START)) {
@@ -77,7 +76,7 @@ public class MainActivity extends AppCompatActivity {
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        switch (item.getItemId()){
+        switch (item.getItemId()) {
             case android.R.id.home:
                 drawerLayout.openDrawer(GravityCompat.START);
                 return true;
@@ -86,23 +85,37 @@ public class MainActivity extends AppCompatActivity {
     }
 
 
-    private void selectItem(String title) {
-        // Enviar título como arguemento del fragmento
-        Bundle args = new Bundle();
-        args.putString(ViewFragment.Seccion_Titulo, title);
-
-        Fragment fragment = ViewFragment.newInstance(title);
-        fragment.setArguments(args);
+    private void selectItem(MenuItem itemDrawer) {
+        Fragment fragment = null;
         FragmentManager fragmentManager = getSupportFragmentManager();
-        fragmentManager
-                .beginTransaction()
-                .replace(R.id.contenedor_principal, fragment)
-                .commit();
 
-        drawerLayout.closeDrawers(); // Cerrar drawer
-
-        setTitle(title); // Setear título actual
-
+        switch (itemDrawer.getItemId()) {
+            case R.id.nav_inicio:
+                fragment = new FragmentoInicio();
+                break;
+            case R.id.nav_plantas:
+                fragment = new FragmentoCuenta();
+                break;
+            case R.id.nav_plagas:
+                fragment = new FragmentoPlagas();
+                break;
+          /*  case R.id.nav_report:
+                fragment = new FragmentoReport();
+                break;
+            case R.id.nav_settings:
+                fragment = new FragmentoSettings();
+                break;
+            case R.id.nav_about:
+                fragment = new FragmentoAbout();
+                break; */
+        }
+        if (fragment != null){
+            fragmentManager
+                    .beginTransaction()
+                    .replace(R.id.contenedor_principal,fragment)
+                    .commit();
+        }
+        setTitle(itemDrawer.getTitle());
     }
 
 }
